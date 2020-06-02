@@ -19,9 +19,9 @@ let zipped = ZipSortedly(reviews, books) { $0.dateWritten < Double($1.dateComple
 for item in zipped { // Each item is visited in date order
     switch item {
     case .ofFirst(let review): // Do some rendering with the review
-		print("A\(review.dateWritten)")
+        print("A\(review.dateWritten)")
     case .ofSecond(let book): // Do some rendering with the book
-		print("B\(book.dateCompleted)")
+        print("B\(book.dateCompleted)")
     }
 }
 
