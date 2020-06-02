@@ -29,22 +29,23 @@ struct Book: Equatable {
     // ...
 }
 
+// Reviews and books are sorted by dateWritten/dateCompleted ascending
 var reviews = [...]
 var books = [...]
 
 let zipped = ZipSortedly(reviews, books) { $0.dateWritten < $1.dateCompleted }
 
-for item in zipped { // Each item comes on in order of dateWritten
+for item in zipped {
     switch item {
     case .ofFirst(let review): // Do some rendering with the review
-		print("A\(review.dateWritten)")
+    	print("A\(review.dateWritten)")
     case .ofSecond(let book): // Do some rendering with the book
-		print("B\(book.dateCompleted)")
+    	print("B\(book.dateCompleted)")
     }
 }
 ```
 
-Note that each item is visited in date order.
+Note that each item is visited in order of dateWritten/dateCompleted not just in the scope of its own original collection, but in the scope of both collections.
 
 Check out ExampleUsage.swift for some working example code and check out the test suite to see what results you should expect.
 
